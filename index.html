@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play to Protect - Safety Games for Kids</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating Help Button -->
+    <div class="floating-help">
+        <button class="help-btn">
+            <i class="fas fa-question-circle"></i> Help
+        </button>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="orbit-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo1.png" alt="Play to Protect Logo" class="logo-img">
+                    <span class="logo-text">Play to Protect</span>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#games">Games</a></li>
+                        <li><a href="#parents">Parents</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Learning Safety Can Be Fun!</h1>
+                    <p class="subtitle">Play interactive games to learn about personal safety, feelings, and boundaries</p>
+                    <div class="hero-buttons">
+                        <a href="#games" class="btn btn-primary">
+                            <i class="fas fa-gamepad"></i> Play Games
+                        </a>
+                        <a href="#mood-check" class="btn btn-secondary">
+                            <i class="fas fa-smile"></i> Mood Check
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="kids.jpeg" alt="Happy kids playing" class="hero-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mood Check Section -->
+    <section class="mood-check" id="mood-check">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Are You Feeling Today?</h2>
+                <p>Choose the face that matches your mood</p>
+            </div>
+            <div class="mood-selector">
+                <div class="mood-option" data-mood="happy">
+                    <div class="mood-icon">
+                        <img src="happy.png" alt="Happy face">
+                    </div>
+                    <p>Happy</p>
+                </div>
+                <div class="mood-option" data-mood="sad">
+                    <div class="mood-icon">
+                        <img src="sad.png" alt="Sad face">
+                    </div>
+                    <p>Sad</p>
+                </div>
+                <div class="mood-option" data-mood="angry">
+                    <div class="mood-icon">
+                        <img src="angry.png" alt="Angry face">
+                    </div>
+                    <p>Angry</p>
+                </div>
+                <div class="mood-option" data-mood="scared">
+                    <div class="mood-icon">
+                        <img src="fear.png" alt="Scared face">
+                    </div>
+                    <p>Scared</p>
+                </div>
+                <div class="mood-option" data-mood="confused">
+                    <div class="mood-icon">
+                        <img src="confused.png" alt="Confused face">
+                    </div>
+                    <p>Confused</p>
+                </div>
+            </div>
+            <div class="mood-response hidden" id="mood-response">
+                <div class="response-content">
+                    <h3 id="response-title">You're feeling <span id="mood-type">happy</span>!</h3>
+                    <p id="response-text">It's great that you're feeling happy today!</p>
+                    <div class="response-actions">
+                        <button class="btn btn-small" id="journal-btn">
+                            <i class="fas fa-book"></i> Journal
+                        </button>
+                        <button class="btn btn-small btn-secondary" id="help-btn">
+                            <i class="fas fa-hands-helping"></i> Get Help
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="games-section" id="games">
+        <div class="container">
+            <div class="section-header">
+                <h2>Safety Games</h2>
+                <p>Learn through play with these fun activities</p>
+            </div>
+            <div class="games-grid">
+                <div class="game-card" id="memory-game">
+                    <div class="game-icon">
+                        <img src="memory_match.jpg" alt="Memory game">
+                    </div>
+                    <h3>Memory Match</h3>
+                    <p>Match the cards to learn about safe people and places</p>
+                    <button class="btn btn-primary">Play Now</button>
+                </div>
+                <div class="modal" id="memory-modal">
+                    <div class="modal-content">
+                        <button class="close-modal">&times;</button>
+                        <h2>Memory Match Game</h2>
+                        <div class="memory-board" id="memory-board">
+                            <!-- Cards will be inserted here by JavaScript -->
+                        </div>
+                        <div class="game-stats">
+                            <p>Matches: <span id="matches">0</span></p>
+                            <p>Turns: <span id="turns">0</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card" id="story-builder">
+                    <div class="game-icon">
+                        <img src="story-book.png" alt="Story builder">
+                    </div>
+                    <h3>Story Builder</h3>
+                    <p>Create your own safety adventure</p>
+                    <button class="btn btn-primary">Start Building</button>
+                </div>
+                <!-- Story Builder Modal -->
+                <div class="modal" id="story-modal">
+                <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <h2>📖 Story Builder</h2>
+  
+                <label>Choose a character:</label>
+                <select id="story-character">
+                    <option value="a brave girl">a brave girl</option>
+                    <option value="a curious boy">a curious boy</option>
+                    <option value="a smart child">a smart child</option>
+                </select>
+  
+                <label>Choose a setting:</label>
+                <select id="story-setting">
+                    <option value="at school">at school</option>
+                    <option value="in the park">in the park</option>
+                    <option value="on the internet">on the internet</option>
+                </select>
+  
+                <label>Choose a situation:</label>
+                <select id="story-situation">
+                    <option value="someone asked for personal information">someone asked for personal information</option>
+                    <option value="a stranger offered help">a stranger offered help</option>
+                    <option value="they felt uncomfortable">they felt uncomfortable</option>
+                </select>
+  
+                <label>Choose an ending:</label>
+                <select id="story-ending">
+                    <option value="they told a trusted adult">they told a trusted adult</option>
+                    <option value="they walked away safely">they walked away safely</option>
+                    <option value="they blocked the person online">they blocked the person online</option>
+                </select>
+            
+                <button class="btn btn-secondary" id="build-story">Generate Story</button>
+            
+                <div id="story-output" style="margin-top: 20px;"></div>
+                </div>
+                </div>
+  
+                <div class="game-card" id="safe-or-not">
+                    <div class="game-icon">
+                        <img src="sign.jpg" alt="Safe or not">
+                    </div>
+                    <h3>Safe or Not?</h3>
+                    <p>Decide if situations are safe</p>
+                    <button class="btn btn-primary">Play Game</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parents Section -->
+    <section class="parents-section" id="parents">
+        <div class="container">
+            <div class="section-header">
+                <h2>For Parents & Guardians</h2>
+                <p>Resources to support your child's safety</p>
+            </div>
+            <div class="parents-content">
+                <div class="parents-image">
+                    <img src="happy-diverse-kids-holding-hands-together_74855-5235.jpeg" alt="Parent and child">
+                </div>
+                <div class="parents-resources">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Starting Conversations</h3>
+                        <p>How to talk to your child about personal safety in an age-appropriate way</p>
+                        <a href="#" class="btn btn-small">Read More</a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>Warning Signs</h3>
+                        <p>What behaviors might indicate your child needs support</p>
+                        <a href="#" class="btn btn-small">Read More</a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Getting Help</h3>
+                        <p>Professional resources and support services available</p>
+                        <a href="#" class="btn btn-small">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>About Us</h2>
+          </div>
+          <div class="about-content">
+            <p>
+              “Play to Protect” is an interactive platform designed to help children express emotions, recognize unsafe experiences, and feel supported through gamified tools and thoughtful guidance.
+            </p>
+            <p>
+              Using mood checks, memory games, storytelling, and scenario-based choices, we gently encourage children to reflect, speak up, and build trust — in a safe, private, and supportive space.
+            </p>
+            <p>
+              This initiative also supports parents and educators by providing resources that promote open conversations and emotional well-being. Together, we work toward a world where every child feels heard, safe, and empowered.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+
+    <!-- Footer -->
+    <footer class="orbit-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo1.png" alt="Play to Protect Logo" class="logo-img">
+                    <span class="logo-text">Play to Protect</span>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Play to Protect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
